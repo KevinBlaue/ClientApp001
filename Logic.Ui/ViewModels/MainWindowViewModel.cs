@@ -14,11 +14,11 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
         public ICommand SaveCommand { get; }
         public ICommand LoadCommand { get; }
         public ICommand OpenNewClientWindowCommand { get; }
-        public ClientCollectionViewModel MyList { get; set; }
+        public BookCollectionViewModel MyList { get; set; }
         private ModelFileHandler modelFileHandler;
         private string pathForSerialization;
 
-        public MainWindowViewModel(ClientCollectionViewModel viewModelCollection)
+        public MainWindowViewModel(BookCollectionViewModel viewModelCollection)
         {
             RenameValueInModelCommand = new RelayCommand(RenameValueInModel);
             SaveCommand = new RelayCommand(SaveModel);
@@ -32,8 +32,9 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
 
         private void RenameValueInModel()
         {
+            // ToDo: Implement method
             var first = MyList.FirstOrDefault();
-            first.Model.Name = "Rename";
+            first.Model.Author = "Rename";
         }
 
         private void SaveModel()

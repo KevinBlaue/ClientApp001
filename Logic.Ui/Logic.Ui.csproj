@@ -49,8 +49,8 @@
     <Compile Include="ViewModelLocator.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\NewClientWindowViewModel.cs" />
-    <Compile Include="Wrapper\ClientCollectionViewModel.cs" />
-    <Compile Include="Wrapper\ClientViewModel.cs" />
+    <Compile Include="Wrapper\BookCollectionViewModel.cs" />
+    <Compile Include="Wrapper\BookViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Business.Model\Business.Model.csproj">

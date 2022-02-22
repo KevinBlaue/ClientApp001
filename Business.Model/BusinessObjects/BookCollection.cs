@@ -5,7 +5,7 @@ using System.Collections.ObjectModel;
 namespace De.HsFlensburg.ClientApp001.Business.Model.BusinessObjects
 {
     [Serializable]
-    public class ClientCollection: ObservableCollection<Client>
+    public class BookCollection: ObservableCollection<Book>
     {
     }
 }

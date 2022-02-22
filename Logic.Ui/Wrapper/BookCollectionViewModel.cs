@@ -5,20 +5,20 @@ using De.HsFlensburg.ClientApp001.Logic.Ui.Base;
 
 namespace De.HsFlensburg.ClientApp001.Logic.Ui.Wrapper
 {
-    public class ClientCollectionViewModel :
+    public class BookCollectionViewModel :
         ViewModelSyncCollection<
-            ClientViewModel,
-            Client,
-            ClientCollection>
+            BookViewModel,
+            Book,
+            BookCollection>
     {
         public override void NewModelAssigned()
         {
-            foreach (var cvm in this)
+            foreach (var bvm in this)
             {
-                var modelPropChanged = cvm.Model as INotifyPropertyChanged;
+                var modelPropChanged = bvm.Model as INotifyPropertyChanged;
                 if (modelPropChanged != null)
                 {
-                    modelPropChanged.PropertyChanged += cvm.OnPropertyChangedInModel;
+                    modelPropChanged.PropertyChanged += bvm.OnPropertyChangedInModel;
                 }
             }
         }

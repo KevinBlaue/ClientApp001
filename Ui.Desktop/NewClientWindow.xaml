@@ -17,7 +17,7 @@
             <TextBox Text="{Binding Identifier}" VerticalAlignment="Center"></TextBox>
             <Label VerticalAlignment="Center" HorizontalAlignment="Right">Identifier</Label>
             <TextBox Text="{Binding Name}" VerticalAlignment="Center"></TextBox>
-            <Button Command="{Binding AddClient}">Kunde erstellen</Button>
+            <Button Command="{Binding AddBookCommand}">Kunde erstellen</Button>
         </UniformGrid>
     </Grid>
 </Window>
