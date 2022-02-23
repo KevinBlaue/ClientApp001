@@ -67,12 +67,12 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="NewClientWindow.xaml" />
+    <Page Include="NewBookWindow.xaml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MessageBusLogic\MessageListener.cs" />
-    <Compile Include="NewClientWindow.xaml.cs">
-      <DependentUpon>NewClientWindow.xaml</DependentUpon>
+    <Compile Include="NewBookWindow.xaml.cs">
+      <DependentUpon>NewBookWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

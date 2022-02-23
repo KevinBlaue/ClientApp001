@@ -2,9 +2,9 @@
 
 namespace De.HsFlensburg.ClientApp001.Ui.Desktop
 {
-    public partial class NewClientWindow : Window
+    public partial class NewBookWindow : Window
     {
-        public NewClientWindow()
+        public NewBookWindow()
         {
             InitializeComponent();
         }

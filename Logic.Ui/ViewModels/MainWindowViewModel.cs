@@ -13,7 +13,7 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
         public ICommand RenameValueInModelCommand { get; }
         public ICommand SaveCommand { get; }
         public ICommand LoadCommand { get; }
-        public ICommand OpenNewClientWindowCommand { get; }
+        public ICommand OpenNewBookWindowCommand { get; }
         public BookCollectionViewModel MyList { get; set; }
         private ModelFileHandler modelFileHandler;
         private string pathForSerialization;
@@ -23,7 +23,7 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
             RenameValueInModelCommand = new RelayCommand(RenameValueInModel);
             SaveCommand = new RelayCommand(SaveModel);
             LoadCommand = new RelayCommand(LoadModel);
-            OpenNewClientWindowCommand = new RelayCommand(OpenNewClientWindowMethod);
+            OpenNewBookWindowCommand = new RelayCommand(OpenNewBookWindowMethod);
             MyList = viewModelCollection;
             modelFileHandler = new ModelFileHandler();
             pathForSerialization = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) +
@@ -47,9 +47,9 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
             MyList.Model = modelFileHandler.ReadModelFromFile(pathForSerialization);
         }
 
-        private void OpenNewClientWindowMethod()
+        private void OpenNewBookWindowMethod()
         {
-            ServiceBus.Instance.Send(new OpenNewClientWindowMessage());
+            ServiceBus.Instance.Send(new OpenNewBookWindowMessage());
         }
     }
 }

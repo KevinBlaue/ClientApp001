@@ -5,7 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:De.HsFlensburg.ClientApp001.Ui.Desktop"
         mc:Ignorable="d"
-        Background="Aquamarine"
         Title="MainWindow" Height="500" Width="700">
     <Window.DataContext>
         <Binding Source="{StaticResource ViewModelLocator}"
@@ -36,13 +35,13 @@
             </Button>
         </UniformGrid>
         <UniformGrid Grid.Row="2" Rows="1">
-            <Button Command="{Binding OpenNewClientWindowCommand}">
+            <Button Command="{Binding OpenNewBookWindowCommand}">
                                         Add new book
                         </Button>
-                        <Button Command="{Binding OpenNewClientWindowCommand}">
+                        <Button Command="{Binding OpenNewBookWindowCommand}">
                             Edit selected book
                         </Button>
-                        <Button Command="{Binding OpenNewClientWindowCommand}">
+                        <Button Command="{Binding OpenNewBookWindowCommand}">
                             Delete selected book
                         </Button>
         </UniformGrid>

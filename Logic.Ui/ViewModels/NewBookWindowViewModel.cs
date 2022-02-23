@@ -4,7 +4,7 @@ using De.HsFlensburg.ClientApp001.Logic.Ui.Wrapper;
 
 namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
 {
-    public class NewClientWindowViewModel
+    public class NewBookWindowViewModel
     {
         public int Identifier { get; set; }
         public string Title { get; set; }
@@ -18,7 +18,7 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
         private BookCollectionViewModel bookCollectionViewModel;
         public ICommand AddBookCommand { get; }
 
-        public NewClientWindowViewModel(BookCollectionViewModel viewModelCollection)
+        public NewBookWindowViewModel(BookCollectionViewModel viewModelCollection)
         {
             AddBookCommand = new RelayCommand(AddBookMethod);
             bookCollectionViewModel = viewModelCollection;

@@ -7,13 +7,13 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui
     {
         public BookCollectionViewModel TheBookCollectionViewModel { get; set; }
         public MainWindowViewModel TheMainWindowViewModel { get; set; }
-        public NewClientWindowViewModel TheNewClientWindowViewModel { get; set; }
+        public NewBookWindowViewModel TheNewClientWindowViewModel { get; set; }
 
         public ViewModelLocator()
         {
             TheBookCollectionViewModel = new BookCollectionViewModel();
             TheMainWindowViewModel = new MainWindowViewModel(TheBookCollectionViewModel);
-            TheNewClientWindowViewModel = new NewClientWindowViewModel(TheBookCollectionViewModel);
+            TheNewClientWindowViewModel = new NewBookWindowViewModel(TheBookCollectionViewModel);
         }
     }
 }
