@@ -24,7 +24,8 @@
                   Background="Aquamarine"
                   RowBackground="Azure"
                   ColumnWidth="*"
-                  ItemsSource="{Binding Path=MyList}">
+                  ItemsSource="{Binding Path=MyList}"
+                  SelectedItem="{Binding SelectedBook}">
         </DataGrid>
         <UniformGrid Grid.Row="1" Rows="1">
             <Button Command="{Binding SaveCommand}">
@@ -38,10 +39,10 @@
             <Button Command="{Binding OpenNewBookWindowCommand}">
                                         Add new book
                         </Button>
-                        <Button Command="{Binding OpenNewBookWindowCommand}">
+                        <Button Command="{Binding RenameValueInModelCommand}">
                             Edit selected book
                         </Button>
-                        <Button Command="{Binding OpenNewBookWindowCommand}">
+                        <Button Command="{Binding DeleteSelectedModelCommand}">
                             Delete selected book
                         </Button>
         </UniformGrid>

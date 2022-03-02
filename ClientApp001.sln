@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ui.Desktop", "Ui.Desktop\Ui
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services.SerializationService", "Services.SerializationService\Services.SerializationService.csproj", "{F852A26B-87BB-43BA-AC66-2C9F7E653AD8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service.MessageBusWithParameter", "Service.MessageBusWithParameter\Service.MessageBusWithParameter.csproj", "{D30BB413-C7C5-44D5-B761-22D4C66ACBCB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{F852A26B-87BB-43BA-AC66-2C9F7E653AD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F852A26B-87BB-43BA-AC66-2C9F7E653AD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F852A26B-87BB-43BA-AC66-2C9F7E653AD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D30BB413-C7C5-44D5-B761-22D4C66ACBCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D30BB413-C7C5-44D5-B761-22D4C66ACBCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D30BB413-C7C5-44D5-B761-22D4C66ACBCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D30BB413-C7C5-44D5-B761-22D4C66ACBCB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -63,6 +69,7 @@ Global
 		{5210D4EE-D2B5-42B3-A94F-A6CC656F1F13} = {F27EEDD8-22D1-4319-A80D-4098DA7DD059}
 		{0751F32D-28EB-4E79-8B2D-AB429134677B} = {AC41601A-1D1D-4BE4-BD9A-2F2C0E99E227}
 		{F852A26B-87BB-43BA-AC66-2C9F7E653AD8} = {F27EEDD8-22D1-4319-A80D-4098DA7DD059}
+		{D30BB413-C7C5-44D5-B761-22D4C66ACBCB} = {F27EEDD8-22D1-4319-A80D-4098DA7DD059}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BFB9B53F-1FA0-46F0-A556-FDAEA340DA11}

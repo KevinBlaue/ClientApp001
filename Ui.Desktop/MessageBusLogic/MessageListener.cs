@@ -1,5 +1,4 @@
-﻿using De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels;
-using De.HsFlensburg.ClientApp001.Service.MessageBus;
+﻿using De.HsFlensburg.ClientApp001.Service.MessageBus;
 using De.HsFlensburg.ClientApp001.Service.MessageBus.MessageBusMessages;
 
 namespace De.HsFlensburg.ClientApp001.Ui.Desktop.MessageBusLogic
@@ -10,6 +9,17 @@ namespace De.HsFlensburg.ClientApp001.Ui.Desktop.MessageBusLogic
         public MessageListener()
         {
             InitMessenger();
+            InitMessengerWithParameter();
+        }
+
+        private void InitMessengerWithParameter()
+        {
+            /*Messenger.Instance.Register<OpenEditBookWindowMessage>(this, delegate(OpenEditBookWindowMessage message)
+            {
+                EditBookWindow myWindow = new EditBookWindow();
+                myWindow.DataContext = message.Book;
+                myWindow.ShowDialog();
+            });*/
         }
 
         private void InitMessenger()

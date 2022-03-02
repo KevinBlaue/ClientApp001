@@ -100,9 +100,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Business.Model\Business.Model.csproj">
+      <Project>{1fef7e32-7ce8-4623-83d7-85928b196176}</Project>
+      <Name>Business.Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Logic.Ui\Logic.Ui.csproj">
       <Project>{da230bed-9cf1-4bc9-8edb-39e715b4611c}</Project>
       <Name>Logic.Ui</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Service.MessageBusWithParameter\Service.MessageBusWithParameter.csproj">
+      <Project>{d30bb413-c7c5-44d5-b761-22d4c66acbcb}</Project>
+      <Name>Service.MessageBusWithParameter</Name>
     </ProjectReference>
     <ProjectReference Include="..\Service.MessageBus\Service.MessageBus.csproj">
       <Project>{5210d4ee-d2b5-42b3-a94f-a6cc656f1f13}</Project>
