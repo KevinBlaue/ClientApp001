@@ -14,12 +14,12 @@ namespace De.HsFlensburg.ClientApp001.Ui.Desktop.MessageBusLogic
 
         private void InitMessenger()
         {
-            ServiceBus.Instance.Register<OpenNewClientWindowMessage>(this, OpenNewClientWindow);
+            ServiceBus.Instance.Register<OpenNewBookWindowMessage>(this, OpenNewBookWindow);
         }
 
-        private void OpenNewClientWindow()
+        private void OpenNewBookWindow()
         {
-            NewClientWindow myWindow = new NewClientWindow();
+            NewBookWindow myWindow = new NewBookWindow();
             myWindow.ShowDialog();
         }
     }

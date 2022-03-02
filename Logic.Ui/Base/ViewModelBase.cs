@@ -27,7 +27,7 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.Base
                 }
                 catch (Exception e)
                 {
-
+                    Console.Out.WriteLine(e.Message);
                 }
 
             }

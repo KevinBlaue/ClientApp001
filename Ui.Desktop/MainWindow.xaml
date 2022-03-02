@@ -4,9 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:De.HsFlensburg.ClientApp001.Ui.Desktop"
-        xmlns:viewModels="clr-namespace:De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels;assembly=Logic.Ui"
         mc:Ignorable="d"
-        Title="MainWindow" Height="120" Width="500">
+        Title="MainWindow" Height="500" Width="700">
     <Window.DataContext>
         <Binding Source="{StaticResource ViewModelLocator}"
                  Path="TheMainWindowViewModel"></Binding>
@@ -16,25 +15,18 @@
                  Path="BindableProperty"></Binding>
     </Window.IsEnabled>
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <UniformGrid Grid.Column="0" Rows="4">
-            <Label VerticalAlignment="Center" HorizontalAlignment="Right">Identifier</Label>
-            <TextBox VerticalAlignment="Center"
-                     Text="{Binding ElementName=myDataGrid, Path=SelectedItem.Id}">
-            </TextBox>
-            <Label VerticalAlignment="Center" HorizontalAlignment="Right">Name</Label>
-            <TextBox VerticalAlignment="Center"
-                     Text="{Binding ElementName=myDataGrid, Path=SelectedItem.Name}">
-            </TextBox>
-            <Button Command="{Binding RenameValueInModelCommand}">
-                Rename first Item
-            </Button>
-            <Button Command="{Binding OpenNewClientWindowCommand}">
-                OpenClientWindow
-            </Button>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <DataGrid Grid.Row="0"
+                  Background="Aquamarine"
+                  RowBackground="Azure"
+                  ColumnWidth="*"
+                  ItemsSource="{Binding Path=MyList}">
+        </DataGrid>
+        <UniformGrid Grid.Row="1" Rows="1">
             <Button Command="{Binding SaveCommand}">
                 Save
             </Button>
@@ -42,9 +34,16 @@
                 Load
             </Button>
         </UniformGrid>
-        <DataGrid Grid.Column="1"
-                  Name="myDataGrid"
-                  ItemsSource="{Binding Path=MyList}">
-        </DataGrid>
+        <UniformGrid Grid.Row="2" Rows="1">
+            <Button Command="{Binding OpenNewBookWindowCommand}">
+                                        Add new book
+                        </Button>
+                        <Button Command="{Binding OpenNewBookWindowCommand}">
+                            Edit selected book
+                        </Button>
+                        <Button Command="{Binding OpenNewBookWindowCommand}">
+                            Delete selected book
+                        </Button>
+        </UniformGrid>
     </Grid>
 </Window>

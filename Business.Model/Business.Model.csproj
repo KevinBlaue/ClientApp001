@@ -41,8 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BusinessObjects\Client.cs" />
-    <Compile Include="BusinessObjects\ClientCollection.cs" />
+    <Compile Include="BusinessObjects\Book.cs" />
+    <Compile Include="BusinessObjects\BookCollection.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

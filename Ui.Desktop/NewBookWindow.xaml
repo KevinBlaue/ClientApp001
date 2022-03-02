@@ -1,0 +1,51 @@
+﻿<Window x:Class="De.HsFlensburg.ClientApp001.Ui.Desktop.NewBookWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:De.HsFlensburg.ClientApp001.Ui.Desktop"
+        xmlns:viewModels="clr-namespace:De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels;assembly=Logic.Ui"
+        mc:Ignorable="d"
+        Title="NewClientWindow" Height="500" Width="300">
+    <Window.DataContext>
+        <Binding Source="{StaticResource ViewModelLocator}"
+                 Path="TheNewClientWindowViewModel"></Binding>
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <UniformGrid Grid.Row="0" Rows="8" Background="Aquamarine">
+            <Label VerticalAlignment="Center" HorizontalAlignment="Left">Identifier</Label>
+            <TextBox Text="{Binding Identifier}" VerticalAlignment="Center"></TextBox>
+            
+            <Label VerticalAlignment="Center" HorizontalAlignment="Left">Title</Label>
+            <TextBox Text="{Binding Title}" VerticalAlignment="Center"></TextBox>
+            
+            <Label VerticalAlignment="Center" HorizontalAlignment="Left">Author</Label>
+            <TextBox Text="{Binding Author}" VerticalAlignment="Center"></TextBox>
+            
+            <Label VerticalAlignment="Center" HorizontalAlignment="Left">Year</Label>
+            <TextBox Text="{Binding Year}" VerticalAlignment="Center"></TextBox>
+            
+            <Label VerticalAlignment="Center" HorizontalAlignment="Left">Publisher</Label>
+            <TextBox Text="{Binding Publisher}" VerticalAlignment="Center"></TextBox>
+            
+            <Label VerticalAlignment="Center" HorizontalAlignment="Left">Sites</Label>
+            <TextBox Text="{Binding Sites}" VerticalAlignment="Center"></TextBox>
+            
+            <Label VerticalAlignment="Center" HorizontalAlignment="Left">Genre</Label>
+            <TextBox Text="{Binding Genre}" VerticalAlignment="Center"></TextBox>
+            
+            <Label VerticalAlignment="Center" HorizontalAlignment="Left">Price</Label>
+            <TextBox Text="{Binding Price}" VerticalAlignment="Center"></TextBox>
+        </UniformGrid>
+        <UniformGrid Grid.Row="1" Rows="1">
+             <Button
+                 Command="{Binding AddBookCommand}">
+                 Buch erstellen
+             </Button>
+        </UniformGrid>
+    </Grid>
+</Window>
