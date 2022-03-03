@@ -42,10 +42,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IServiceBus.cs" />
-    <Compile Include="MessageBusMessages\OpenNewBookWindowMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceBus.cs" />
     <Compile Include="WeakReferenceAction.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="MessageBusMessages" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

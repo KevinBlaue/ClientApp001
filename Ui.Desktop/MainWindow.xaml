@@ -39,7 +39,7 @@
             <Button Command="{Binding OpenNewBookWindowCommand}">
                                         Add new book
                         </Button>
-                        <Button Command="{Binding RenameValueInModelCommand}">
+                        <Button Command="{Binding OpenEditSelectedModelCommand}">
                             Edit selected book
                         </Button>
                         <Button Command="{Binding DeleteSelectedModelCommand}">

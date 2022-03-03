@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="EditBookWindow.xaml" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -62,6 +63,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="EditBookWindow.xaml.cs">
+      <DependentUpon>EditBookWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -100,10 +104,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Business.Model\Business.Model.csproj">
-      <Project>{1fef7e32-7ce8-4623-83d7-85928b196176}</Project>
-      <Name>Business.Model</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Logic.Ui\Logic.Ui.csproj">
       <Project>{da230bed-9cf1-4bc9-8edb-39e715b4611c}</Project>
       <Name>Logic.Ui</Name>
