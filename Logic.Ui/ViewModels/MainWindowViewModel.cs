@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.IO;
 using System.Windows.Input;
 using De.HsFlensburg.ClientApp001.Logic.Ui.Wrapper;
 using De.HsFlensburg.ClientApp001.Service.MessageBusWithParameter;
@@ -18,7 +19,11 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
         public ICommand OpenNewBookWindowCommand { get; }
         public BookCollectionViewModel MyList { get; set; }
         private ModelFileHandler modelFileHandler;
-        private string pathForSerialization;
+
+        private static string serializationFolderName = "BookCollectionSerialization";
+        private static string serializationFileName = "MyBooks.cc";
+        private string pathForSerialization = $@"{serializationFolderName}\{serializationFileName}";
+
         private BookViewModel selectedBook;
 
         public BookViewModel SelectedBook
@@ -43,8 +48,10 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
             OpenNewBookWindowCommand = new RelayCommand(OpenNewBookWindowMethod);
             MyList = viewModelCollection;
             modelFileHandler = new ModelFileHandler();
-            pathForSerialization = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) +
-                                   "\\BookCollectionSerialization\\MyBooks.cc";
+            Directory.CreateDirectory(serializationFolderName);
+            if(!File.Exists(Path.Combine(serializationFolderName, serializationFileName))){
+                File.WriteAllText(Path.Combine(serializationFolderName, serializationFileName), "");
+            }
         }
 
         private void OpenEditSelectedModelMethod()
