@@ -4,14 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D30BB413-C7C5-44D5-B761-22D4C66ACBCB}</ProjectGuid>
+    <ProjectGuid>{787EAC8E-3BAA-4090-BFDA-41577375478A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>De.HsFlensburg.ClientApp001.Service.MessageBusWithParameter</RootNamespace>
-    <AssemblyName>Service.MessageBusWithParameter</AssemblyName>
+    <RootNamespace>Services.XmlService</RootNamespace>
+    <AssemblyName>Services.XmlService</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,6 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,15 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActionIdentifier.cs" />
-    <Compile Include="IActionParameter.cs" />
-    <Compile Include="IMessenger.cs" />
-    <Compile Include="MessageBusMessages\OpenNewBookWindowMessage.cs" />
-    <Compile Include="MessageBusWithParameterMessages\OpenEditBookWindowMessage.cs" />
-    <Compile Include="MessageBusMessages\OpenExportWindowMessage.cs" />
-    <Compile Include="Messenger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WeakReferenceAction.cs" />
+    <Compile Include="XmlBuilder.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Business.Model\Business.Model.csproj">
+      <Project>{1fef7e32-7ce8-4623-83d7-85928b196176}</Project>
+      <Name>Business.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

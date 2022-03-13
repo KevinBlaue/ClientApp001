@@ -34,6 +34,9 @@
             <Button Command="{Binding LoadCommand}">
                 Load
             </Button>
+            <Button Command="{Binding OpenExportWindowCommand}">
+                Export
+            </Button>
         </UniformGrid>
         <UniformGrid Grid.Row="2" Rows="1">
             <Button Command="{Binding OpenNewBookWindowCommand}">
