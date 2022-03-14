@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:De.HsFlensburg.ClientApp001.Ui.Desktop"
         mc:Ignorable="d"
         Title="ExportWindow"
-        Height="100" Width="500">
+        Width="500"
+        Height="150">
     <Window.DataContext>
         <Binding Source="{StaticResource ViewModelLocator}"
                  Path="TheExportWindowViewModel"></Binding>
@@ -20,10 +21,13 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="10"></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
             <RowDefinition Height="10"></RowDefinition>
         </Grid.RowDefinitions>
         <Button Grid.Row="1" Grid.Column="1" Command="{Binding ExportToXmlCommand}">Export To XML</Button>
-        <Button Grid.Row="1" Grid.Column="2">Export To HTML</Button>
+        <Button Grid.Row="1" Grid.Column="2" Command="{Binding ExportToHtmlCommand}">Export To HTML</Button>
+        <Label Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Content="{Binding Status}" FontWeight="Bold"></Label>
     </Grid>
 </Window>

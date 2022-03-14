@@ -1,5 +1,7 @@
 ﻿using De.HsFlensburg.ClientApp001.Logic.Ui.Wrapper;
+using Services.HtmlService;
 using Services.XmlService;
+using System;
 using System.ComponentModel;
 
 namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
@@ -7,6 +9,16 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
     public class ExportWindowViewModel : INotifyPropertyChanged
     {
         private BookCollectionViewModel bookCollection;
+        private bool success;
+        private string status;
+        private string typ;
+
+        public ExportWindowViewModel(BookCollectionViewModel viewModelCollection)
+        {
+            ExportToXmlCommand = new RelayCommand(ExportToXmlMethod);
+            ExportToHtmlCommand = new RelayCommand(ExportToHtmlMethod);
+            Books = viewModelCollection;
+        }
         public BookCollectionViewModel Books
         {
             get
@@ -19,17 +31,66 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
                 OnPropertyChanged("BookCollection");
             }
         }
-        public RelayCommand ExportToXmlCommand { get; }
-        public ExportWindowViewModel(BookCollectionViewModel viewModelCollection)
+        public bool Success
         {
-            ExportToXmlCommand = new RelayCommand(ExportToXmlMethod);
-            Books = viewModelCollection;
+            get
+            {
+                return success;
+            }
+            set
+            {
+                if (value)
+                {
+                    Status = $"- {Typ} - Export erfolgreich -";
+                }
+                else
+                {
+                    Status = $"- {Typ} - Fehler beim Export -";
+                }
+                success = value;
+                OnPropertyChanged("Success");
+            }
         }
-        private void ExportToXmlMethod()
+        public string Typ
+        {
+            get
+            {
+                return typ;
+            }
+            set
+            {
+                typ = value;
+                OnPropertyChanged("Typ");
+            }
+        }
+        public string Status
+        {
+            get
+            {
+                return status;
+            }
+            set
+            {
+                status = value;
+                OnPropertyChanged("Status");
+            }
+        }
+        public RelayCommand ExportToXmlCommand { get; }
+        public RelayCommand ExportToHtmlCommand { get; }
+        private async void ExportToXmlMethod()
         {
             XmlBuilder xmlBuilder = new XmlBuilder();
-            xmlBuilder.ExportXmlTextToFile(Books.Model);
+            Typ = "XML";
+            Success = await xmlBuilder.ExportXmlTextToFile(Books.Model);
         }
+        private async void ExportToHtmlMethod()
+        {
+            HtmlBuilder htmlBuilder = new HtmlBuilder();
+            Typ = "HTML";
+            Success = await htmlBuilder.ExportToHtmlFile(Books.Model);
+        }
+
+        [field: NonSerialized]
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string propertyName)
         {

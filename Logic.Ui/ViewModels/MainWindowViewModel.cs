@@ -40,16 +40,6 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
             }
         }
 
-        public BookCollectionViewModel Books
-        {
-            get { return MyList; }
-            set
-            {
-                MyList = value;
-                OnPropertyChanged("Books");
-            }
-        }
-
         public MainWindowViewModel(BookCollectionViewModel viewModelCollection)
         {
             DeleteSelectedModelCommand = new RelayCommand(DeleteSelectedModelMethod);
