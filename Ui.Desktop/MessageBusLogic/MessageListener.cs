@@ -19,6 +19,11 @@ namespace De.HsFlensburg.ClientApp001.Ui.Desktop.MessageBusLogic
                 NewBookWindow myWindow = new NewBookWindow();
                 myWindow.ShowDialog();
             });
+            Messenger.Instance.Register<OpenStatistikWindowMessage>(this, delegate (OpenStatistikWindowMessage message)
+            {
+                StatistikWindow myWindow = new StatistikWindow();
+                myWindow.ShowDialog();
+            });
             Messenger.Instance.Register<OpenEditBookWindowMessage>(this, delegate(OpenEditBookWindowMessage message)
             {
                 EditBookWindow myWindow = new EditBookWindow();

@@ -53,6 +53,7 @@
     <Compile Include="ViewModels\EditBookWindowViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\NewBookWindowViewModel.cs" />
+    <Compile Include="ViewModels\StatistikWindowViewModel.cs" />
     <Compile Include="Wrapper\BookCollectionViewModel.cs" />
     <Compile Include="Wrapper\BookViewModel.cs" />
   </ItemGroup>

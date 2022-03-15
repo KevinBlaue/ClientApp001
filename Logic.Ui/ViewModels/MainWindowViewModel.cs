@@ -13,6 +13,7 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
     public class MainWindowViewModel : INotifyPropertyChanged
     {
         public ICommand DeleteSelectedModelCommand { get; }
+        public ICommand OpenStatistikWindowCommand { get; }
         public ICommand OpenEditSelectedModelCommand { get; }
         public ICommand SaveCommand { get; }
         public ICommand LoadCommand { get; }
@@ -46,10 +47,12 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
             SaveCommand = new RelayCommand(SaveModel);
             LoadCommand = new RelayCommand(LoadModel);
             OpenNewBookWindowCommand = new RelayCommand(OpenNewBookWindowMethod);
+            OpenStatistikWindowCommand = new RelayCommand(OpenStatistikWindowMethod);
             MyList = viewModelCollection;
             modelFileHandler = new ModelFileHandler();
             Directory.CreateDirectory(serializationFolderName);
-            if(!File.Exists(Path.Combine(serializationFolderName, serializationFileName))){
+            if (!File.Exists(Path.Combine(serializationFolderName, serializationFileName)))
+            {
                 File.WriteAllText(Path.Combine(serializationFolderName, serializationFileName), "");
             }
         }
@@ -72,7 +75,7 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
         {
             if (SelectedBook != null)
             {
-                 MyList.Remove(SelectedBook);
+                MyList.Remove(SelectedBook);
             }
         }
 
@@ -91,6 +94,12 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
             Messenger.Instance.Send(new OpenNewBookWindowMessage());
         }
 
+        private void OpenStatistikWindowMethod()
+        {
+            Messenger.Instance.Send(new OpenStatistikWindowMessage());
+        }
+
+
         private void SendSelectedBook()
         {
             Messenger.Instance.Send<BookViewModel>(SelectedBook);
@@ -98,7 +107,7 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
 
         [field: NonSerialized]
         public event PropertyChangedEventHandler PropertyChanged;
-        
+
         protected virtual void OnPropertyChanged(string propertyName)
         {
             PropertyChangedEventHandler handler = PropertyChanged;

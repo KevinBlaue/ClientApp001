@@ -1,0 +1,48 @@
+﻿<Window x:Class="De.HsFlensburg.ClientApp001.Ui.Desktop.StatistikWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:De.HsFlensburg.ClientApp001.Ui.Desktop"
+        mc:Ignorable="d"
+        Title="StatistikWindow" Height="768" Width="600">
+    <Window.DataContext>
+        <Binding Source="{StaticResource ViewModelLocator}"
+                 Path="TheStatistikWindowViewModel"></Binding>
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <UniformGrid Grid.Row="0" Rows="1">
+            <TextBlock FontSize="30" HorizontalAlignment="Center">Statistiken</TextBlock> 
+        </UniformGrid>
+        <UniformGrid Grid.Row="1" Rows="14">
+            <TextBlock>Anzahl an Seiten aller Bücher <Label Content="{Binding AllPages}"/></TextBlock>
+            <TextBlock>Durchscnitliche anzahl an Seiten pro Bucher <Label Content="{Binding MedianPages}"/></TextBlock>
+            <TextBlock>Längstes Buch  <Label Content="{Binding LongestBook}"/></TextBlock>
+            <TextBlock>Kürzestes Buch  <Label Content="{Binding ShortestBook}"/></TextBlock>
+            <TextBlock>Anzahl an Autoren <Label Content="{Binding AllAuthors}"/></TextBlock>
+            <TextBlock>Meist vorkommender Autor <Label Content="{Binding MostAuthor}"/></TextBlock>
+            <TextBlock>Durchscnittliches Erscheinungsjahr<Label Content="{Binding MedianRelease}"/></TextBlock>
+            <TextBlock>Ältestes Buch  <Label Content="{Binding OldestBook}"/></TextBlock>
+            <TextBlock>Durchschnittlicher Preis <Label Content="{Binding MedianPrice}"/></TextBlock>
+            <TextBlock>Wert aller Bücher  <Label Content="{Binding PriceOfAll}"/></TextBlock>
+            <TextBlock>Teuerstes Buch  <Label Content="{Binding MostExpensivBook}"/></TextBlock>
+            <TextBlock>Günstigstes Buch  <Label Content="{Binding LeastExpensivBook}"/></TextBlock>
+            <TextBlock>Anzahl an Publishern  <Label Content="{Binding AllPublisher}"/></TextBlock>
+            <TextBlock>Meist vorkommenster Publishern  <Label Content="{Binding replace}"/></TextBlock>
+           
+        </UniformGrid>
+
+        <UniformGrid Grid.Row="2" Rows="1">
+            <Button Command="{Binding CreateStatistics}">
+                Statistiken Erstellen
+            </Button>
+        </UniformGrid>
+    </Grid>
+
+</Window>
