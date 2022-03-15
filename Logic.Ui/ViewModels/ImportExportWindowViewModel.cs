@@ -6,17 +6,19 @@ using System.ComponentModel;
 
 namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
 {
-    public class ExportWindowViewModel : INotifyPropertyChanged
+    public class ImportExportWindowViewModel : INotifyPropertyChanged
     {
         private BookCollectionViewModel bookCollection;
         private bool success;
         private string status;
         private string typ;
 
-        public ExportWindowViewModel(BookCollectionViewModel viewModelCollection)
+        public ImportExportWindowViewModel(BookCollectionViewModel viewModelCollection)
         {
             ExportToXmlCommand = new RelayCommand(ExportToXmlMethod);
             ExportToHtmlCommand = new RelayCommand(ExportToHtmlMethod);
+            ImportXmlCommand = new RelayCommand(ImportXmlMethod);
+            ImportHtmlCommand = new RelayCommand(ImportHtmlMethod);
             Books = viewModelCollection;
         }
         public BookCollectionViewModel Books
@@ -41,11 +43,11 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
             {
                 if (value)
                 {
-                    Status = $"- {Typ} - Export erfolgreich -";
+                    Status = $"- {Typ} - erfolgreich -";
                 }
                 else
                 {
-                    Status = $"- {Typ} - Fehler beim Export -";
+                    Status = $"- {Typ} - Fehlerhaft -";
                 }
                 success = value;
                 OnPropertyChanged("Success");
@@ -77,19 +79,33 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
         }
         public RelayCommand ExportToXmlCommand { get; }
         public RelayCommand ExportToHtmlCommand { get; }
-        private async void ExportToXmlMethod()
+        public RelayCommand ImportXmlCommand { get; }
+        public RelayCommand ImportHtmlCommand { get; }
+        private void ExportToXmlMethod()
         {
-            XmlBuilder xmlBuilder = new XmlBuilder();
-            Typ = "XML";
-            Success = await xmlBuilder.ExportXmlTextToFile(Books.Model);
+            XmlExporter xmlExporter = new XmlExporter();
+            Typ = "XML - Export";
+            Success = xmlExporter.ExportXmlTextToFile(Books.Model);
         }
-        private async void ExportToHtmlMethod()
+        private void ExportToHtmlMethod()
         {
-            HtmlBuilder htmlBuilder = new HtmlBuilder();
-            Typ = "HTML";
-            Success = await htmlBuilder.ExportToHtmlFile(Books.Model);
+            HtmlExporter htmlExporter = new HtmlExporter();
+            Typ = "HTML - Export";
+            Success = htmlExporter.ExportToHtmlFile(Books.Model);
         }
-
+        private void ImportXmlMethod()
+        {
+            XmlImporter xmlImporter = new XmlImporter();
+            Typ = "XML - Import";
+            Success = xmlImporter.ImportXmlFileToBookCollection(Books.Model);
+        }
+        private void ImportHtmlMethod()
+        {
+            HtmlImporter htmlImporter = new HtmlImporter();
+            Typ = "HTML - Import";
+            Success = htmlImporter.ImportHtmlFileToBookCollection(Books.Model);
+        }
+        
         [field: NonSerialized]
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string propertyName)
