@@ -24,6 +24,7 @@
                   Background="Aquamarine"
                   RowBackground="Azure"
                   ColumnWidth="*"
+                  IsReadOnly="True"
                   ItemsSource="{Binding Path=MyList}"
                   SelectedItem="{Binding SelectedBook}">
         </DataGrid>
@@ -33,6 +34,9 @@
             </Button>
             <Button Command="{Binding LoadCommand}">
                 Load
+            </Button>
+            <Button Command="{Binding OpenImportExportWindowCommand}">
+                Import / Export
             </Button>
         </UniformGrid>
         <UniformGrid Grid.Row="2" Rows="1">
@@ -45,6 +49,7 @@
             <Button Command="{Binding DeleteSelectedModelCommand}">
                 Delete selected book
             </Button>
+
             <Button Command="{Binding OpenStatistikWindowCommand}">
                 Statistics
             </Button>

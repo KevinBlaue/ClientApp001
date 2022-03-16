@@ -1,12 +1,12 @@
-﻿using System;
-using System.ComponentModel;
-using System.IO;
-using System.Windows.Input;
-using De.HsFlensburg.ClientApp001.Logic.Ui.Wrapper;
+﻿using De.HsFlensburg.ClientApp001.Logic.Ui.Wrapper;
 using De.HsFlensburg.ClientApp001.Service.MessageBusWithParameter;
 using De.HsFlensburg.ClientApp001.Service.MessageBusWithParameter.MessageBusMessages;
 using De.HsFlensburg.ClientApp001.Service.MessageBusWithParameter.MessageBusWithParameterMessages;
 using De.HsFlensburg.ClientApp001.Services.SerializationService;
+using System;
+using System.ComponentModel;
+using System.IO;
+using System.Windows.Input;
 
 namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
 {
@@ -18,15 +18,13 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
         public ICommand SaveCommand { get; }
         public ICommand LoadCommand { get; }
         public ICommand OpenNewBookWindowCommand { get; }
+        public ICommand OpenImportExportWindowCommand { get; }
         public BookCollectionViewModel MyList { get; set; }
         private ModelFileHandler modelFileHandler;
-
-        private static string serializationFolderName = "BookCollectionSerialization";
-        private static string serializationFileName = "MyBooks.cc";
-        private string pathForSerialization = $@"{serializationFolderName}\{serializationFileName}";
-
+        private string pathForSerialization = Environment.GetFolderPath(
+            Environment.SpecialFolder.MyDocuments
+            ) + "\\BookManagerSerialization\\BooksGroup001.bmf";
         private BookViewModel selectedBook;
-
         public BookViewModel SelectedBook
         {
             get
@@ -47,6 +45,7 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
             SaveCommand = new RelayCommand(SaveModel);
             LoadCommand = new RelayCommand(LoadModel);
             OpenNewBookWindowCommand = new RelayCommand(OpenNewBookWindowMethod);
+
             OpenStatistikWindowCommand = new RelayCommand(OpenStatistikWindowMethod);
             MyList = viewModelCollection;
             modelFileHandler = new ModelFileHandler();
@@ -55,6 +54,9 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
             {
                 File.WriteAllText(Path.Combine(serializationFolderName, serializationFileName), "");
             }
+
+            OpenImportExportWindowCommand = new RelayCommand(OpenImportExportWindowMethod);
+
         }
 
         private void OpenEditSelectedModelMethod()
@@ -87,6 +89,11 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
         private void LoadModel()
         {
             MyList.Model = modelFileHandler.ReadModelFromFile(pathForSerialization);
+        }
+
+        private void OpenImportExportWindowMethod()
+        {
+            Messenger.Instance.Send(new OpenImportExportWindowMessage());
         }
 
         private void OpenNewBookWindowMethod()

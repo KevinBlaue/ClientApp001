@@ -36,6 +36,15 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
             bvm.Genre = Genre;
             bvm.Price = Price;
             bookCollectionViewModel.Add(bvm);
+
+            Identifier = 0;
+            Title = "";
+            Author = "";
+            Year = "";
+            Publisher = "";
+            Sites = 0;
+            Genre = "";
+            Price = 0.00;
         }
     }
 }
