@@ -55,6 +55,7 @@
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\NewBookWindowViewModel.cs" />
     <Compile Include="ViewModels\SearchBookWindowViewModel.cs" />
+    <Compile Include="ViewModels\PrintWindowViewModel.cs" />
     <Compile Include="Wrapper\BookCollectionViewModel.cs" />
     <Compile Include="Wrapper\BookViewModel.cs" />
   </ItemGroup>
@@ -74,6 +75,10 @@
     <ProjectReference Include="..\Services.HtmlService\Services.HtmlService.csproj">
       <Project>{A3624DAB-CDE5-4A8D-86C0-7BE3FE2EC0E8}</Project>
       <Name>Services.HtmlService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Services.PrintService\Services.PrintService.csproj">
+      <Project>{aff7a065-21c7-4aa5-a729-42abf1249fae}</Project>
+      <Name>Services.PrintService</Name>
     </ProjectReference>
     <ProjectReference Include="..\Services.SerializationService\Services.SerializationService.csproj">
       <Project>{f852a26b-87bb-43ba-ac66-2c9f7e653ad8}</Project>

@@ -19,6 +19,7 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
         public ICommand SearchBookCommand { get; }
         public ICommand OpenNewBookWindowCommand { get; }
         public ICommand OpenImportExportWindowCommand { get; }
+        public ICommand OpenPrintWindowCommand { get; }
         public BookCollectionViewModel MyList { get; set; }
         private ModelFileHandler modelFileHandler;
         private string pathForSerialization = Environment.GetFolderPath(
@@ -47,6 +48,8 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
             SearchBookCommand = new RelayCommand(SearchBookMethod);
             OpenNewBookWindowCommand = new RelayCommand(OpenNewBookWindowMethod);
             OpenImportExportWindowCommand = new RelayCommand(OpenImportExportWindowMethod);
+            OpenPrintWindowCommand = new RelayCommand(OpenPrintWindowMethod);
+
             MyList = viewModelCollection;
             modelFileHandler = new ModelFileHandler();
         }
@@ -56,6 +59,7 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
             Messenger.Instance.Send(new OpenSearchBookWindowMessage());
         }
 
+        private void OpenPrintWindowMethod() => Messenger.Instance.Send(new OpenPrintWindowMessage());
         private void OpenEditSelectedModelMethod()
         {
             if (SelectedBook != null)

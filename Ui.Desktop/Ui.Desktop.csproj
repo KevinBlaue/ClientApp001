@@ -83,6 +83,7 @@
     </Compile>
     <Page Include="NewBookWindow.xaml" />
     <Page Include="SearchBookWindow.xaml">
+    <Page Include="PrintWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -91,6 +92,9 @@
     <Compile Include="MessageBusLogic\MessageListener.cs" />
     <Compile Include="NewBookWindow.xaml.cs">
       <DependentUpon>NewBookWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PrintWindow.xaml.cs">
+      <DependentUpon>PrintWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

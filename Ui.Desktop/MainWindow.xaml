@@ -41,6 +41,8 @@
             </Button>
             <Button Command="{Binding SearchBookCommand}" Margin="0,0,-0.4,0.4">
                 Search
+            <Button Command="{Binding OpenPrintWindowCommand}">
+                Print
             </Button>
         </UniformGrid>
         <UniformGrid Grid.Row="2" Rows="1">
