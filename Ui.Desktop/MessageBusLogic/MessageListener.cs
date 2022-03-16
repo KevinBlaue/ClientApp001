@@ -29,6 +29,11 @@ namespace De.HsFlensburg.ClientApp001.Ui.Desktop.MessageBusLogic
                 ImportExportWindow myWindow = new ImportExportWindow();
                 myWindow.ShowDialog();
             });
+            Messenger.Instance.Register<OpenPrintWindowMessage>(this, delegate (OpenPrintWindowMessage message)
+            {
+                PrintWindow myWindow = new PrintWindow();
+                myWindow.ShowDialog();
+            });
         }
     }
 }

@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services.XmlService", "Serv
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services.HtmlService", "Services.HtmlService\Services.HtmlService.csproj", "{A3624DAB-CDE5-4A8D-86C0-7BE3FE2EC0E8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services.PrintService", "Services.PrintService\Services.PrintService.csproj", "{AFF7A065-21C7-4AA5-A729-42ABF1249FAE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,10 @@ Global
 		{A3624DAB-CDE5-4A8D-86C0-7BE3FE2EC0E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3624DAB-CDE5-4A8D-86C0-7BE3FE2EC0E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3624DAB-CDE5-4A8D-86C0-7BE3FE2EC0E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFF7A065-21C7-4AA5-A729-42ABF1249FAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFF7A065-21C7-4AA5-A729-42ABF1249FAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFF7A065-21C7-4AA5-A729-42ABF1249FAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFF7A065-21C7-4AA5-A729-42ABF1249FAE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -84,6 +90,7 @@ Global
 		{D30BB413-C7C5-44D5-B761-22D4C66ACBCB} = {F27EEDD8-22D1-4319-A80D-4098DA7DD059}
 		{787EAC8E-3BAA-4090-BFDA-41577375478A} = {F27EEDD8-22D1-4319-A80D-4098DA7DD059}
 		{A3624DAB-CDE5-4A8D-86C0-7BE3FE2EC0E8} = {F27EEDD8-22D1-4319-A80D-4098DA7DD059}
+		{AFF7A065-21C7-4AA5-A729-42ABF1249FAE} = {F27EEDD8-22D1-4319-A80D-4098DA7DD059}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BFB9B53F-1FA0-46F0-A556-FDAEA340DA11}

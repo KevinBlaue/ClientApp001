@@ -10,6 +10,7 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui
         public NewBookWindowViewModel TheNewBookWindowViewModel { get; set; }
         public EditBookWindowViewModel TheEditBookWindowViewModel { get; set; }
         public ImportExportWindowViewModel TheImportExportWindowViewModel { get; set; }
+        public PrintWindowViewModel ThePrintWindowViewModel { get; }
 
         public ViewModelLocator()
         {
@@ -18,6 +19,7 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui
             TheNewBookWindowViewModel = new NewBookWindowViewModel(TheBookCollectionViewModel);
             TheEditBookWindowViewModel = new EditBookWindowViewModel();
             TheImportExportWindowViewModel = new ImportExportWindowViewModel(TheBookCollectionViewModel);
+            ThePrintWindowViewModel = new PrintWindowViewModel(TheBookCollectionViewModel);
         }
     }
 }

@@ -45,6 +45,7 @@
     <Compile Include="IActionParameter.cs" />
     <Compile Include="IMessenger.cs" />
     <Compile Include="MessageBusMessages\OpenNewBookWindowMessage.cs" />
+    <Compile Include="MessageBusMessages\OpenPrintWindowMessage.cs" />
     <Compile Include="MessageBusWithParameterMessages\OpenEditBookWindowMessage.cs" />
     <Compile Include="MessageBusMessages\OpenImportExportWindowMessage.cs" />
     <Compile Include="Messenger.cs" />

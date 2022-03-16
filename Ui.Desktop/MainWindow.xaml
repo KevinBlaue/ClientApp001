@@ -38,6 +38,9 @@
             <Button Command="{Binding OpenImportExportWindowCommand}">
                 Import / Export
             </Button>
+            <Button Command="{Binding OpenPrintWindowCommand}">
+                Print
+            </Button>
         </UniformGrid>
         <UniformGrid Grid.Row="2" Rows="1">
             <Button Command="{Binding OpenNewBookWindowCommand}">
