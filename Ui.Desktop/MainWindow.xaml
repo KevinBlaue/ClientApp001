@@ -24,6 +24,7 @@
                   Background="Aquamarine"
                   RowBackground="Azure"
                   ColumnWidth="*"
+                  IsReadOnly="True"
                   ItemsSource="{Binding Path=MyList}"
                   SelectedItem="{Binding SelectedBook}">
         </DataGrid>
@@ -40,14 +41,14 @@
         </UniformGrid>
         <UniformGrid Grid.Row="2" Rows="1">
             <Button Command="{Binding OpenNewBookWindowCommand}">
-                                        Add new book
-                        </Button>
-                        <Button Command="{Binding OpenEditSelectedModelCommand}">
-                            Edit selected book
-                        </Button>
-                        <Button Command="{Binding DeleteSelectedModelCommand}">
-                            Delete selected book
-                        </Button>
+                Add new book
+            </Button>
+            <Button Command="{Binding OpenEditSelectedModelCommand}">
+                Edit selected book
+            </Button>
+            <Button Command="{Binding DeleteSelectedModelCommand}">
+                Delete selected book
+            </Button>
         </UniformGrid>
     </Grid>
 </Window>
