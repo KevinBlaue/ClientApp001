@@ -20,13 +20,10 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
         public ICommand OpenExportWindowCommand { get; }
         public BookCollectionViewModel MyList { get; set; }
         private ModelFileHandler modelFileHandler;
-
-        private static string serializationFolderName = "BookCollectionSerialization";
-        private static string serializationFileName = "MyBooks.cc";
-        private string pathForSerialization = $@"{serializationFolderName}\{serializationFileName}";
-
+        private string pathForSerialization = Environment.GetFolderPath(
+            Environment.SpecialFolder.MyDocuments
+            ) + "\\BookManagerSerialization\\BooksGroup001.bmf";
         private BookViewModel selectedBook;
-
         public BookViewModel SelectedBook
         {
             get
@@ -50,11 +47,6 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
             OpenExportWindowCommand = new RelayCommand(OpenExportWindowMethod);
             MyList = viewModelCollection;
             modelFileHandler = new ModelFileHandler();
-            Directory.CreateDirectory(serializationFolderName);
-            if (!File.Exists(Path.Combine(serializationFolderName, serializationFileName)))
-            {
-                File.WriteAllText(Path.Combine(serializationFolderName, serializationFileName), "");
-            }
         }
 
         private void OpenEditSelectedModelMethod()
