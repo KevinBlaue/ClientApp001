@@ -55,8 +55,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="StatistikWindow.xaml.cs">
-      <DependentUpon>StatistikWindow.xaml</DependentUpon>
+    <Compile Include="SearchBookWindow.xaml.cs">
+      <DependentUpon>SearchBookWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="EditBookWindow.xaml" />
     <Page Include="ImportExportWindow.xaml">
@@ -82,7 +82,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="NewBookWindow.xaml" />
-    <Page Include="StatistikWindow.xaml">
+    <Page Include="SearchBookWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -13,10 +13,10 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
     public class MainWindowViewModel : INotifyPropertyChanged
     {
         public ICommand DeleteSelectedModelCommand { get; }
-        public ICommand OpenStatistikWindowCommand { get; }
         public ICommand OpenEditSelectedModelCommand { get; }
         public ICommand SaveCommand { get; }
         public ICommand LoadCommand { get; }
+        public ICommand SearchBookCommand { get; }
         public ICommand OpenNewBookWindowCommand { get; }
         public ICommand OpenImportExportWindowCommand { get; }
         public BookCollectionViewModel MyList { get; set; }
@@ -44,16 +44,17 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
             OpenEditSelectedModelCommand = new RelayCommand(OpenEditSelectedModelMethod);
             SaveCommand = new RelayCommand(SaveModel);
             LoadCommand = new RelayCommand(LoadModel);
+            SearchBookCommand = new RelayCommand(SearchBookMethod);
             OpenNewBookWindowCommand = new RelayCommand(OpenNewBookWindowMethod);
-
-            OpenStatistikWindowCommand = new RelayCommand(OpenStatistikWindowMethod);
+            OpenImportExportWindowCommand = new RelayCommand(OpenImportExportWindowMethod);
             MyList = viewModelCollection;
             modelFileHandler = new ModelFileHandler();
-            OpenImportExportWindowCommand = new RelayCommand(OpenImportExportWindowMethod);
-            
-        
+        }
 
-    }
+        private void SearchBookMethod()
+        {
+            Messenger.Instance.Send(new OpenSearchBookWindowMessage());
+        }
 
         private void OpenEditSelectedModelMethod()
         {
@@ -88,20 +89,14 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
         }
 
         private void OpenImportExportWindowMethod()
-        {
-            Messenger.Instance.Send(new OpenImportExportWindowMessage());
+        {         
+            Messenger.Instance.Send(new OpenImportExportWindowMessage());           
         }
 
         private void OpenNewBookWindowMethod()
         {
             Messenger.Instance.Send(new OpenNewBookWindowMessage());
         }
-
-        private void OpenStatistikWindowMethod()
-        {
-            Messenger.Instance.Send(new OpenStatistikWindowMessage());
-        }
-
 
         private void SendSelectedBook()
         {
