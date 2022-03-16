@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:De.HsFlensburg.ClientApp001.Ui.Desktop"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="700">
+        Title="Book Manager" Height="500" Width="700">
     <Window.DataContext>
         <Binding Source="{StaticResource ViewModelLocator}"
                  Path="TheMainWindowViewModel"></Binding>
