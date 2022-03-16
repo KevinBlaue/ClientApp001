@@ -28,7 +28,7 @@
                   ItemsSource="{Binding Path=MyList}"
                   SelectedItem="{Binding SelectedBook}">
         </DataGrid>
-        
+
         <UniformGrid Grid.Row="1" Rows="1">
             <Button Command="{Binding SaveCommand}" HorizontalAlignment="Left" Margin="0,0,0,0.4" Width="168">
                 Save
@@ -41,6 +41,7 @@
             </Button>
             <Button Command="{Binding SearchBookCommand}" Margin="0,0,-0.4,0.4">
                 Search
+            </Button>
             <Button Command="{Binding OpenPrintWindowCommand}">
                 Print
             </Button>

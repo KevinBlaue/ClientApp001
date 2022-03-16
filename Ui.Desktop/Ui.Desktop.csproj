@@ -82,7 +82,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="NewBookWindow.xaml" />
-    <Page Include="SearchBookWindow.xaml">
+    <Page Include="SearchBookWindow.xaml" />
     <Page Include="PrintWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
