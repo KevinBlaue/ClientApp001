@@ -46,7 +46,7 @@
     <Compile Include="IMessenger.cs" />
     <Compile Include="MessageBusMessages\OpenNewBookWindowMessage.cs" />
     <Compile Include="MessageBusWithParameterMessages\OpenEditBookWindowMessage.cs" />
-    <Compile Include="MessageBusMessages\OpenExportWindowMessage.cs" />
+    <Compile Include="MessageBusMessages\OpenImportExportWindowMessage.cs" />
     <Compile Include="Messenger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WeakReferenceAction.cs" />

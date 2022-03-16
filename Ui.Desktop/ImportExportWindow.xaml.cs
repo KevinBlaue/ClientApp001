@@ -17,9 +17,9 @@ namespace De.HsFlensburg.ClientApp001.Ui.Desktop
     /// <summary>
     /// Interaction logic for ExportWindow.xaml
     /// </summary>
-    public partial class ExportWindow : Window
+    public partial class ImportExportWindow : Window
     {
-        public ExportWindow()
+        public ImportExportWindow()
         {
             InitializeComponent();
         }

@@ -35,8 +35,8 @@
             <Button Command="{Binding LoadCommand}">
                 Load
             </Button>
-            <Button Command="{Binding OpenExportWindowCommand}">
-                Export
+            <Button Command="{Binding OpenImportExportWindowCommand}">
+                Import / Export
             </Button>
         </UniformGrid>
         <UniformGrid Grid.Row="2" Rows="1">
