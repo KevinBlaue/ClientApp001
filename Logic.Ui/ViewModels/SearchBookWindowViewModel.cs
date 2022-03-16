@@ -76,7 +76,7 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
             {
                 foreach (BookViewModel book in bookCollectionViewModel)
                 {
-                    if (book.Title == search)
+                    if (book.Author == search)
                     {
                         FoundBooks.Add(book);
                     }
@@ -85,7 +85,7 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
                 {
                     foreach (BookViewModel book in bookCollectionViewModel)
                     {
-                        if (book.Title == search)
+                        if (book.Year == search)
                         {
                             FoundBooks.Add(book);
                         }
@@ -95,16 +95,27 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
             {
                 foreach (BookViewModel book in bookCollectionViewModel)
                 {
-                    if (book.Title == search)
+                    if (book.Publisher == search)
                     {
                         FoundBooks.Add(book);
                     }
                 }
-            }else if (property == "Genre")
+            }
+            else if (property == "Sites")
             {
                 foreach (BookViewModel book in bookCollectionViewModel)
                 {
-                    if (book.Title == search)
+                    if (book.Sites == int.Parse(search))
+                    {
+                        FoundBooks.Add(book);
+                    }
+                }
+            }
+            else if (property == "Genre")
+            {
+                foreach (BookViewModel book in bookCollectionViewModel)
+                {
+                    if (book.Genre == search)
                     {
                         FoundBooks.Add(book);
                     }
