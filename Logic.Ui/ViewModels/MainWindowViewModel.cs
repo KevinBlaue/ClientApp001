@@ -49,15 +49,11 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
             OpenStatistikWindowCommand = new RelayCommand(OpenStatistikWindowMethod);
             MyList = viewModelCollection;
             modelFileHandler = new ModelFileHandler();
-            Directory.CreateDirectory(serializationFolderName);
-            if (!File.Exists(Path.Combine(serializationFolderName, serializationFileName)))
-            {
-                File.WriteAllText(Path.Combine(serializationFolderName, serializationFileName), "");
-            }
-
             OpenImportExportWindowCommand = new RelayCommand(OpenImportExportWindowMethod);
+            
+        
 
-        }
+    }
 
         private void OpenEditSelectedModelMethod()
         {
