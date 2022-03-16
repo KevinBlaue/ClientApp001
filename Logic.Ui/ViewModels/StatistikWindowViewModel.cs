@@ -14,6 +14,7 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
 
         public BookCollectionViewModel MyList { get; set; }
         public ICommand CreateStatistics { get; }
+        //data bindings to update the content in the view when the data is changed here line 17 to 213
         private int allPages;
         public int AllPages
         {
@@ -183,8 +184,8 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
             }
         }
 
-            private string allPublisher;
-        public string AllPublisher
+        private int allPublisher;
+        public int AllPublisher
         {
             get
             {
@@ -194,6 +195,20 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
             {
                 allPublisher = value;
                 OnPropertyChanged(nameof(AllPublisher));
+            }
+        }
+
+        private string mostPublisher;
+        public string MostPublisher
+        {
+            get
+            {
+                return mostPublisher;
+            }
+            set
+            {
+                mostPublisher = value;
+                OnPropertyChanged(nameof(MostPublisher));
             }
         }
 
@@ -207,6 +222,7 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
 
         private void CreateStatisticsModel()
         {
+            //Create all arrays to store the all the diffrent data sets
             int arrayLength = MyList.Count;
             String[] titel = new String[arrayLength];
             String[] autors = new String[arrayLength];
@@ -217,6 +233,7 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
             var i = 0;
             foreach (var bvm in MyList)
             {
+                //get all the data from each list entry an store it in the corresponding array
                 titel[i] = bvm.Title;
                 pages[i] = bvm.Sites;
                 autors[i] = bvm.Author;
@@ -225,12 +242,12 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
                 publisher[i] = bvm.Publisher;
                 i++;
             }
+            //call all methods to create the statistics
             pageStatistics(pages, titel);
             authorStatistics(autors);
             releaseStatistics(releasYear, titel);
             priceStatistics(price, titel);
             publisherStatistics(publisher, titel);
-
         }
 
         private void pageStatistics(int[] pages, String[] titel)
@@ -241,9 +258,12 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
             var longestBookIndex = 0;
             var shortestBookIndex = 0;
             var i = 0;
+            //Going through the array wich contains all page lenghts of every book
+            //Calculates the combined number of Pages, the Longest book and the shortest book
             foreach (var pageCount in pages)
             {
                 totalPages += pageCount;
+
                 if (pageCount > mostPages)
                 {
                     mostPages = pageCount;
@@ -256,21 +276,22 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
                 }
                 i++;
             }
+            //updates the data bindings so the changes are seen in the view
             AllPages = totalPages;
             MedianPages = totalPages / pages.Length;
-            LongestBook = "Längstes Buch:" + titel[longestBookIndex] + " mit:" + mostPages.ToString() + " Seiten";
-            ShortestBook = "Kürzestes Buch:" + titel[shortestBookIndex] + " mit:" + leastPages.ToString() + " Seiten";
+            LongestBook = titel[longestBookIndex] + " with: " + mostPages.ToString() + " total pages";
+            ShortestBook = titel[shortestBookIndex] + " with: " + leastPages.ToString() + " total pages";
         }
 
         private void authorStatistics(String[] authorsArray)
         {
             String[] numberOfAuthors = new String[authorsArray.Length];
             var i = 0;
-            var j = 0;
             var counter = 0;
             var mostCounter = 0;
             var freqAuthor = "";
             bool isDouble = false;
+            //Checks every books author and counts the number of unique authors 
             foreach (var author in authorsArray)
             {
                 foreach (var doubelAuthor in numberOfAuthors)
@@ -278,6 +299,10 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
                     if (author == doubelAuthor)
                     {
                         isDouble = true;
+                        break;
+                    }
+                    else if (doubelAuthor == null)
+                    {
                         break;
                     }
                 }
@@ -288,8 +313,9 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
                 }
                 isDouble = false;
             }
-
-
+            
+            //Goes through every books author and counts how many books one author has written and
+            //stors the one with the most books
             foreach (var author in authorsArray)
             {
                 foreach (var authorToCompare in authorsArray)
@@ -307,8 +333,9 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
                 counter = 0;
             }
 
+            //updates the data bindings so the changes are seen in the view
             AllAuthors = i;
-            MostAuthor = freqAuthor + " has the most books with: " + mostCounter.ToString() + " books";
+            MostAuthor = freqAuthor + " with: " + mostCounter.ToString() + " books to his name";
         }
 
         private void releaseStatistics(String[] years, String[] titel)
@@ -318,6 +345,8 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
             var median = 0;
             var oldestYear = 0;
             var oldestIndex = 0;
+            //Goes through every books release year and checks wich is the oldest
+            //also counts all years together to caculate the median release Year
             foreach (var year in years)
             {
                 yearAsInt = Int32.Parse(year);
@@ -330,8 +359,9 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
                 i++;
             }
 
+            //updates the data bindings so the changes are seen in the view
             MedianRelease = median / i;
-            OldestBook = titel[oldestIndex] + " release: " + oldestYear;
+            OldestBook = titel[oldestIndex] + " released: " + oldestYear;
         }
 
         private void priceStatistics(double[] prices, String[] titel)
@@ -343,6 +373,8 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
             var mostIndex = 0;
             double leastExpensiv = 0;
             var leastIndex = 0;
+            //Goes through every books price and checks wich is the most and least expensive
+            //also calculates the total cost of all the books Prices Combined
             foreach (var price in prices)
             {
                 totalPrice += price;
@@ -359,17 +391,68 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
                 i++;
             }
 
+            //updates the data bindings so the changes are seen in the view
             MedianPrice = Math.Round(totalPrice / i, 2);
             PriceOfAll = totalPrice;
-            MostExpensivBook = titel[mostIndex] + " is the most expensiv with a cost of: " + mostExpensiv;
-            LeastExpensivBook = titel[leastIndex] + " is the least expensiv with a cost of: " + leastExpensiv;
+            MostExpensivBook = titel[mostIndex] + " with a price of : " + mostExpensiv;
+            LeastExpensivBook = titel[leastIndex] + " with a price of : " + leastExpensiv;
         }
 
-        private void publisherStatistics(String[] publisher, String[] titel)
+        private void publisherStatistics(String[] publisherArray, String[] titel)
         {
 
+            String[] numberOfPublisher = new String[publisherArray.Length];
+            int i = 0;
+            bool isDouble = false;
+            int counter = 0;
+            int mostCounter = 0;
+            string freqPublisher = "";
 
+            //Checks every books publisher and counts the number of unique publishers 
+            foreach (var publisher in publisherArray)
+            {
+                foreach (var doubelPublisher in numberOfPublisher)
+                {
+                    if (publisher == doubelPublisher)
+                    {
+                        isDouble = true;
+                        break;
+                    }
+                    else if (doubelPublisher == null)
+                    {
+                        break;
+                    }
+                }
 
+                if (isDouble == false)
+                {
+                    numberOfPublisher[i++] = publisher;
+                }
+                isDouble = false;
+            }
+
+            //Goes through every books publisher and counts how many books one publisher has published and
+            //stors the one with the most books
+            foreach (var publisher in publisherArray)
+            {
+                foreach (var publisherToCompare in publisherArray)
+                {
+                    if (publisher == publisherToCompare)
+                    {
+                        counter++;
+                    }
+                }
+                if (counter > mostCounter)
+                {
+                    mostCounter = counter;
+                    freqPublisher = publisher;
+                }
+                counter = 0;
+            }
+
+            //updates the data bindings so the changes are seen in the view
+            AllPublisher = i;
+            MostPublisher = freqPublisher + " has the most books published with : " + mostCounter.ToString() + " books";
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

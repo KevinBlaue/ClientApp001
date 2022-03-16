@@ -46,7 +46,7 @@
                 Delete selected book
             </Button>
             <Button Command="{Binding OpenStatistikWindowCommand}">
-                Statistiken
+                Statistics
             </Button>
         </UniformGrid>
     </Grid>

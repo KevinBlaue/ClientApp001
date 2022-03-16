@@ -18,29 +18,100 @@
             <RowDefinition Height="50"></RowDefinition>
         </Grid.RowDefinitions>
         <UniformGrid Grid.Row="0" Rows="1">
-            <TextBlock FontSize="30" HorizontalAlignment="Center">Statistiken</TextBlock> 
+            <TextBlock FontSize="30" HorizontalAlignment="Center">Statistics</TextBlock>
         </UniformGrid>
+
         <UniformGrid Grid.Row="1" Rows="14">
-            <TextBlock>Anzahl an Seiten aller Bücher <Label Content="{Binding AllPages}"/></TextBlock>
-            <TextBlock>Durchscnitliche anzahl an Seiten pro Bucher <Label Content="{Binding MedianPages}"/></TextBlock>
-            <TextBlock>Längstes Buch  <Label Content="{Binding LongestBook}"/></TextBlock>
-            <TextBlock>Kürzestes Buch  <Label Content="{Binding ShortestBook}"/></TextBlock>
-            <TextBlock>Anzahl an Autoren <Label Content="{Binding AllAuthors}"/></TextBlock>
-            <TextBlock>Meist vorkommender Autor <Label Content="{Binding MostAuthor}"/></TextBlock>
-            <TextBlock>Durchscnittliches Erscheinungsjahr<Label Content="{Binding MedianRelease}"/></TextBlock>
-            <TextBlock>Ältestes Buch  <Label Content="{Binding OldestBook}"/></TextBlock>
-            <TextBlock>Durchschnittlicher Preis <Label Content="{Binding MedianPrice}"/></TextBlock>
-            <TextBlock>Wert aller Bücher  <Label Content="{Binding PriceOfAll}"/></TextBlock>
-            <TextBlock>Teuerstes Buch  <Label Content="{Binding MostExpensivBook}"/></TextBlock>
-            <TextBlock>Günstigstes Buch  <Label Content="{Binding LeastExpensivBook}"/></TextBlock>
-            <TextBlock>Anzahl an Publishern  <Label Content="{Binding AllPublisher}"/></TextBlock>
-            <TextBlock>Meist vorkommenster Publishern  <Label Content="{Binding replace}"/></TextBlock>
-           
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center">Pages of all Books combined :</TextBlock>
+                    <Label Content="{Binding AllPages}"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center">Average amount of pages per book :</TextBlock>
+                    <Label Content="{Binding MedianPages}"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center">Longest book :</TextBlock>
+                    <Label Content="{Binding LongestBook}"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center">Shortest book :</TextBlock>
+                    <Label Content="{Binding ShortestBook}"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center">Amount of different authors :</TextBlock>
+                    <Label Content="{Binding AllAuthors}"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center">Most occurring author:</TextBlock>
+                    <Label Content="{Binding MostAuthor}"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center">Average release year:</TextBlock>
+                    <Label Content="{Binding MedianRelease}"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center">Oldest book :</TextBlock>
+                    <Label Content="{Binding OldestBook}"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center">Average Price :</TextBlock>
+                    <Label Content="{Binding MedianPrice}"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center">Cost of all books combined :</TextBlock>
+                    <Label Content="{Binding PriceOfAll}"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center">Most expensive book :</TextBlock>
+                    <Label Content="{Binding MostExpensivBook}"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center">Least expensive book :</TextBlock>
+                    <Label Content="{Binding LeastExpensivBook}"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center">Amount of different publishers :</TextBlock>
+                    <Label Content="{Binding AllPublisher}"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center">Most occuring publisher :</TextBlock>
+                    <Label Content="{Binding MostPublisher}"/>
+                </StackPanel>
+            </StackPanel>
+
         </UniformGrid>
 
         <UniformGrid Grid.Row="2" Rows="1">
             <Button Command="{Binding CreateStatistics}">
-                Statistiken Erstellen
+                Create statistics
             </Button>
         </UniformGrid>
     </Grid>
