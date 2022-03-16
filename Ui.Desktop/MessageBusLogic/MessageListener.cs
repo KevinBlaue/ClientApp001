@@ -38,6 +38,11 @@ namespace De.HsFlensburg.ClientApp001.Ui.Desktop.MessageBusLogic
                 PrintWindow myWindow = new PrintWindow();
                 myWindow.ShowDialog();
             });
+            Messenger.Instance.Register<OpenSearchBookWindowMessage>(this, delegate (OpenSearchBookWindowMessage message)
+            {
+                SearchBookWindow myWindow = new SearchBookWindow();
+                myWindow.ShowDialog();
+            });
         }
     }
 }

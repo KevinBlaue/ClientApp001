@@ -12,6 +12,7 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui
         public StatistikWindowViewModel TheStatistikWindowViewModel { get; set; }
         public ImportExportWindowViewModel TheImportExportWindowViewModel { get; set; }
         public PrintWindowViewModel ThePrintWindowViewModel { get; }
+        public SearchBookWindowViewModel TheSearchBookWindowViewModel { get; }
 
         public ViewModelLocator()
         {
@@ -22,6 +23,7 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui
             TheStatistikWindowViewModel = new StatistikWindowViewModel(TheBookCollectionViewModel);
             TheImportExportWindowViewModel = new ImportExportWindowViewModel(TheBookCollectionViewModel);
             ThePrintWindowViewModel = new PrintWindowViewModel(TheBookCollectionViewModel);
+            TheSearchBookWindowViewModel = new SearchBookWindowViewModel(TheBookCollectionViewModel);
         }
     }
 }

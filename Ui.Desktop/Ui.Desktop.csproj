@@ -58,6 +58,9 @@
     <Compile Include="PrintWindow.xaml.cs">
       <DependentUpon>PrintWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SearchBookWindow.xaml.cs">
+      <DependentUpon>SearchBookWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="StatistikWindow.xaml.cs">
       <DependentUpon>StatistikWindow.xaml</DependentUpon>
     </Compile>
@@ -86,6 +89,10 @@
     </Compile>
     <Page Include="NewBookWindow.xaml" />
     <Page Include="PrintWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SearchBookWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

@@ -35,11 +35,11 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
 
             if (Title != null)
             {
-                SearchMethod("Title" ,Title);
+                SearchMethod("Title", Title);
             }
-            else if(Author != null)
+            else if (Author != null)
             {
-                SearchMethod("Author" ,Author);
+                SearchMethod("Author", Author);
             }
             else if (Year != null)
             {
@@ -52,7 +52,7 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
             else if (Genre != null)
             {
                 SearchMethod("Genre", Genre);
-            }         
+            }
             else
             {
                 Console.WriteLine("Book not found");
@@ -62,7 +62,7 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
 
         private void SearchMethod(string property, string search)
         {
-            if(property == "Title")
+            if (property == "Title")
             {
                 foreach (BookViewModel book in bookCollectionViewModel)
                 {
@@ -72,54 +72,56 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
                     }
                 }
             }
-            else if (property == "Title")
+            else if (property == "Author")
             {
                 foreach (BookViewModel book in bookCollectionViewModel)
                 {
-                    if (book.Title == search)
+                    if (book.Author == search)
                     {
                         FoundBooks.Add(book);
                     }
                 }
-            }else if (property == "Author")
+            }
+            else if (property == "Year")
             {
                 foreach (BookViewModel book in bookCollectionViewModel)
                 {
-                    if (book.Title == search)
+                    if (book.Year == search)
                     {
                         FoundBooks.Add(book);
                     }
                 }
-            }else if (property == "Year")
-                {
-                    foreach (BookViewModel book in bookCollectionViewModel)
-                    {
-                        if (book.Title == search)
-                        {
-                            FoundBooks.Add(book);
-                        }
-                    }
-                }
+            }
             else if (property == "Publisher")
             {
                 foreach (BookViewModel book in bookCollectionViewModel)
                 {
-                    if (book.Title == search)
-                    {
-                        FoundBooks.Add(book);
-                    }
-                }
-            }else if (property == "Genre")
-            {
-                foreach (BookViewModel book in bookCollectionViewModel)
-                {
-                    if (book.Title == search)
+                    if (book.Publisher == search)
                     {
                         FoundBooks.Add(book);
                     }
                 }
             }
-
+            else if (property == "Sites")
+            {
+                foreach (BookViewModel book in bookCollectionViewModel)
+                {
+                    if (book.Sites == int.Parse(search))
+                    {
+                        FoundBooks.Add(book);
+                    }
+                }
+            }
+            else if (property == "Genre")
+            {
+                foreach (BookViewModel book in bookCollectionViewModel)
+                {
+                    if (book.Genre == search)
+                    {
+                        FoundBooks.Add(book);
+                    }
+                }
+            }
         }
     }
 }

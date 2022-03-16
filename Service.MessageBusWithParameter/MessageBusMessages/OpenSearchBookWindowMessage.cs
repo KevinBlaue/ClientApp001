@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace De.HsFlensburg.ClientApp001.Service.MessageBusWithParameter.MessageBusWithParameterMessages
+namespace De.HsFlensburg.ClientApp001.Service.MessageBusWithParameter.MessageBusMessages
 {
     public class OpenSearchBookWindowMessage
     {
