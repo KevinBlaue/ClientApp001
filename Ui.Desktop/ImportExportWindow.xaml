@@ -1,4 +1,4 @@
-﻿<Window x:Class="De.HsFlensburg.ClientApp001.Ui.Desktop.ExportWindow"
+﻿<Window x:Class="De.HsFlensburg.ClientApp001.Ui.Desktop.ImportExportWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,10 +7,10 @@
         mc:Ignorable="d"
         Title="ExportWindow"
         Width="500"
-        Height="150">
+        Height="200">
     <Window.DataContext>
         <Binding Source="{StaticResource ViewModelLocator}"
-                 Path="TheExportWindowViewModel"></Binding>
+                 Path="TheImportExportWindowViewModel"></Binding>
     </Window.DataContext>
     <Grid Background="Aquamarine" >
         <Grid.ColumnDefinitions>
@@ -23,11 +23,15 @@
             <RowDefinition Height="10"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
             <RowDefinition Height="30"></RowDefinition>
             <RowDefinition Height="10"></RowDefinition>
         </Grid.RowDefinitions>
         <Button Grid.Row="1" Grid.Column="1" Command="{Binding ExportToXmlCommand}">Export To XML</Button>
         <Button Grid.Row="1" Grid.Column="2" Command="{Binding ExportToHtmlCommand}">Export To HTML</Button>
-        <Label Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Content="{Binding Status}" FontWeight="Bold"></Label>
+        <Button Grid.Row="3" Grid.Column="1" Command="{Binding ImportXmlCommand}">Import XML</Button>
+        <Button Grid.Row="3" Grid.Column="2" Command="{Binding ImportHtmlCommand}">Import HTML</Button>
+        <Label Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" Content="{Binding Status}" FontWeight="Bold" HorizontalContentAlignment="Center"></Label>
     </Grid>
 </Window>

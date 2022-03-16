@@ -13,11 +13,12 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
     public class MainWindowViewModel : INotifyPropertyChanged
     {
         public ICommand DeleteSelectedModelCommand { get; }
+        public ICommand OpenStatistikWindowCommand { get; }
         public ICommand OpenEditSelectedModelCommand { get; }
         public ICommand SaveCommand { get; }
         public ICommand LoadCommand { get; }
         public ICommand OpenNewBookWindowCommand { get; }
-        public ICommand OpenExportWindowCommand { get; }
+        public ICommand OpenImportExportWindowCommand { get; }
         public BookCollectionViewModel MyList { get; set; }
         private ModelFileHandler modelFileHandler;
         private string pathForSerialization = Environment.GetFolderPath(
@@ -44,10 +45,15 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
             SaveCommand = new RelayCommand(SaveModel);
             LoadCommand = new RelayCommand(LoadModel);
             OpenNewBookWindowCommand = new RelayCommand(OpenNewBookWindowMethod);
-            OpenExportWindowCommand = new RelayCommand(OpenExportWindowMethod);
+
+            OpenStatistikWindowCommand = new RelayCommand(OpenStatistikWindowMethod);
             MyList = viewModelCollection;
             modelFileHandler = new ModelFileHandler();
-        }
+            OpenImportExportWindowCommand = new RelayCommand(OpenImportExportWindowMethod);
+            
+        
+
+    }
 
         private void OpenEditSelectedModelMethod()
         {
@@ -81,23 +87,21 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
             MyList.Model = modelFileHandler.ReadModelFromFile(pathForSerialization);
         }
 
-        private void OpenExportWindowMethod()
+        private void OpenImportExportWindowMethod()
         {
-            if (MyList.Count > 0)
-            {
-                Messenger.Instance.Send(new OpenExportWindowMessage());
-            }
-            else
-            {
-                Console.WriteLine("Es befinden sich keine Bücher in der Liste");
-            }
-
+            Messenger.Instance.Send(new OpenImportExportWindowMessage());
         }
 
         private void OpenNewBookWindowMethod()
         {
             Messenger.Instance.Send(new OpenNewBookWindowMessage());
         }
+
+        private void OpenStatistikWindowMethod()
+        {
+            Messenger.Instance.Send(new OpenStatistikWindowMessage());
+        }
+
 
         private void SendSelectedBook()
         {

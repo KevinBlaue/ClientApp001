@@ -19,14 +19,21 @@ namespace De.HsFlensburg.ClientApp001.Ui.Desktop.MessageBusLogic
                 NewBookWindow myWindow = new NewBookWindow();
                 myWindow.ShowDialog();
             });
-            Messenger.Instance.Register<OpenEditBookWindowMessage>(this, delegate (OpenEditBookWindowMessage message)
+
+            Messenger.Instance.Register<OpenStatistikWindowMessage>(this, delegate (OpenStatistikWindowMessage message)
+            {
+                StatistikWindow myWindow = new StatistikWindow();
+                myWindow.ShowDialog();
+            });
+            Messenger.Instance.Register<OpenEditBookWindowMessage>(this, delegate(OpenEditBookWindowMessage message)
+
             {
                 EditBookWindow myWindow = new EditBookWindow();
                 myWindow.ShowDialog();
             });
-            Messenger.Instance.Register<OpenExportWindowMessage>(this, delegate (OpenExportWindowMessage message)
+            Messenger.Instance.Register<OpenImportExportWindowMessage>(this, delegate (OpenImportExportWindowMessage message)
             {
-                ExportWindow myWindow = new ExportWindow();
+                ImportExportWindow myWindow = new ImportExportWindow();
                 myWindow.ShowDialog();
             });
         }
