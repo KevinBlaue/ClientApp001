@@ -278,9 +278,20 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
             }
             //updates the data bindings so the changes are seen in the view
             AllPages = totalPages;
-            MedianPages = totalPages / pages.Length;
-            LongestBook = titel[longestBookIndex] + " with: " + mostPages.ToString() + " total pages";
-            ShortestBook = titel[shortestBookIndex] + " with: " + leastPages.ToString() + " total pages";
+            try
+            {
+                MedianPages = totalPages / pages.Length;
+                LongestBook = titel[longestBookIndex] + " with: " + mostPages.ToString() + " total pages";
+                ShortestBook = titel[shortestBookIndex] + " with: " + leastPages.ToString() + " total pages";
+            }
+            catch
+            {
+                MedianPages = 0;
+                LongestBook = "NaN";
+                ShortestBook = "NaN";
+            }
+
+
         }
 
         private void authorStatistics(String[] authorsArray)
@@ -313,7 +324,7 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
                 }
                 isDouble = false;
             }
-            
+
             //Goes through every books author and counts how many books one author has written and
             //stors the one with the most books
             foreach (var author in authorsArray)
@@ -349,7 +360,15 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
             //also counts all years together to caculate the median release Year
             foreach (var year in years)
             {
-                yearAsInt = Int32.Parse(year);
+                try
+                {
+                    yearAsInt = Int32.Parse(year);
+                }
+                catch
+                {
+                    yearAsInt = 9999;
+                }
+
                 median += yearAsInt;
                 if (yearAsInt < oldestYear || i == 0)
                 {
@@ -360,8 +379,18 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
             }
 
             //updates the data bindings so the changes are seen in the view
-            MedianRelease = median / i;
-            OldestBook = titel[oldestIndex] + " released: " + oldestYear;
+            try
+            {
+                MedianRelease = median / i;
+                OldestBook = titel[oldestIndex] + " released: " + oldestYear;
+            }
+            catch
+            {
+                MedianRelease = 0;
+                OldestBook = "NaN";
+            }
+
+
         }
 
         private void priceStatistics(double[] prices, String[] titel)
@@ -392,10 +421,21 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
             }
 
             //updates the data bindings so the changes are seen in the view
-            MedianPrice = Math.Round(totalPrice / i, 2);
-            PriceOfAll = totalPrice;
-            MostExpensivBook = titel[mostIndex] + " with a price of : " + mostExpensiv;
-            LeastExpensivBook = titel[leastIndex] + " with a price of : " + leastExpensiv;
+            try
+            {
+                MedianPrice = Math.Round(totalPrice / i, 2);
+                PriceOfAll = totalPrice;
+                MostExpensivBook = titel[mostIndex] + " with a price of : " + mostExpensiv;
+                LeastExpensivBook = titel[leastIndex] + " with a price of : " + leastExpensiv;
+            }
+            catch
+            {
+                MedianPrice = 0;
+                PriceOfAll = totalPrice;
+                MostExpensivBook = "NaN";
+                LeastExpensivBook = "NaN";
+            }
+
         }
 
         private void publisherStatistics(String[] publisherArray, String[] titel)
@@ -452,8 +492,16 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
 
             //updates the data bindings so the changes are seen in the view
             AllPublisher = i;
-            MostPublisher = freqPublisher + " has the most books published with : " + mostCounter.ToString() + " books";
+            try
+            {
+                MostPublisher = freqPublisher + " has the most books published with : " + mostCounter.ToString() + " books";
+            }
+            catch
+            {
+                MostPublisher = "NaN";
+            }
         }
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 
