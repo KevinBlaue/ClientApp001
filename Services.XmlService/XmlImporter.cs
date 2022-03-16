@@ -39,7 +39,7 @@ namespace Services.XmlService
                         Publisher = node.SelectSingleNode("author").InnerText,
                         Sites = int.Parse(node.SelectSingleNode("sites").InnerText),
                         Genre = node.SelectSingleNode("genre").InnerText,
-                        Price = double.Parse(node.SelectSingleNode("author").InnerText)
+                        Price = double.Parse(node.SelectSingleNode("price").InnerText)
                     };
                     bookCollection.Add(book);
                 }
