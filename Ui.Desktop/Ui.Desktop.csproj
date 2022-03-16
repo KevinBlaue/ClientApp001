@@ -55,8 +55,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="SearchBookWindow.xaml.cs">
-      <DependentUpon>SearchBookWindow.xaml</DependentUpon>
+    <Compile Include="PrintWindow.xaml.cs">
+      <DependentUpon>PrintWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StatistikWindow.xaml.cs">
+      <DependentUpon>StatistikWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="EditBookWindow.xaml" />
     <Page Include="ImportExportWindow.xaml">
@@ -82,8 +85,11 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="NewBookWindow.xaml" />
-    <Page Include="SearchBookWindow.xaml" />
     <Page Include="PrintWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="StatistikWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -92,9 +98,6 @@
     <Compile Include="MessageBusLogic\MessageListener.cs" />
     <Compile Include="NewBookWindow.xaml.cs">
       <DependentUpon>NewBookWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="PrintWindow.xaml.cs">
-      <DependentUpon>PrintWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

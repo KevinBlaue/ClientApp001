@@ -43,11 +43,11 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
             {
                 if (value)
                 {
-                    Status = $"- {Typ} - erfolgreich -";
+                    Status = $"- {Typ} - successful -";
                 }
                 else
                 {
-                    Status = $"- {Typ} - Fehlerhaft -";
+                    Status = $"- {Typ} - faulty -";
                 }
                 success = value;
                 OnPropertyChanged("Success");
@@ -105,7 +105,7 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
             Typ = "HTML - Import";
             Success = htmlImporter.ImportHtmlFileToBookCollection(Books.Model);
         }
-        
+
         [field: NonSerialized]
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string propertyName)

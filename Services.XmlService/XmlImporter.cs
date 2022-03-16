@@ -1,11 +1,7 @@
 ﻿using De.HsFlensburg.ClientApp001.Business.Model.BusinessObjects;
 using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 
 namespace Services.XmlService
@@ -49,7 +45,7 @@ namespace Services.XmlService
             {
                 Console.WriteLine(ex.Message);
                 return false;
-            }                        
+            }
         }
     }
 }

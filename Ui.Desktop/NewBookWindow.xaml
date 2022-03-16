@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:De.HsFlensburg.ClientApp001.Ui.Desktop"
         xmlns:viewModels="clr-namespace:De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels;assembly=Logic.Ui"
         mc:Ignorable="d"
-        Title="NewClientWindow" Height="500" Width="300">
+        Title="New book" Height="500" Width="300">
     <Window.DataContext>
         <Binding Source="{StaticResource ViewModelLocator}"
                  Path="TheNewBookWindowViewModel"></Binding>

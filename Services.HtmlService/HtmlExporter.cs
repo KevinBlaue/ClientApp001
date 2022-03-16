@@ -32,20 +32,20 @@ namespace Services.HtmlService
             builder.Append("<head>");
             builder.Append("</head>");
             builder.Append("<body>");
-            
+
 
             foreach (var book in books)
             {
                 builder.Append($"<ul>");
                 builder.Append($"<li>ID: {book.Id}</li>");
-                builder.Append($"<li>Title: {book.Title}</li>");                        
+                builder.Append($"<li>Title: {book.Title}</li>");
                 builder.Append($"<li>Author: {book.Author}</li>");
                 builder.Append($"<li>Publisher: {book.Publisher}</li>");
                 builder.Append($"<li>Genre: {book.Genre}</li>");
                 builder.Append($"<li>Sites: {book.Sites}</li>");
                 builder.Append($"<li>Price: {book.Price}</li>");
                 builder.Append($"<li>Year: {book.Year}</li>");
-                builder.Append($"</ul>");                
+                builder.Append($"</ul>");
             }
 
             builder.Append("</body>");

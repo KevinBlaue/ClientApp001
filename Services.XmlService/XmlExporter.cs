@@ -1,7 +1,6 @@
 ﻿using De.HsFlensburg.ClientApp001.Business.Model.BusinessObjects;
 using Microsoft.Win32;
 using System;
-using System.Threading.Tasks;
 using System.Xml;
 
 namespace Services.XmlService
@@ -11,13 +10,13 @@ namespace Services.XmlService
         public bool ExportXmlTextToFile(BookCollection bookCollection)
         {
             try
-            {                
+            {
                 SaveFileDialog dialog = new SaveFileDialog
                 {
                     FileName = "BookCollectionAsXml",
                     DefaultExt = ".xml",
                     Filter = "XML Files|*.xml"
-            };
+                };
 
                 dialog.ShowDialog();
                 string directory = dialog.FileName;
@@ -42,7 +41,7 @@ namespace Services.XmlService
                 xmlWriter.WriteEndElement();
                 xmlWriter.WriteEndDocument();
                 xmlWriter.Close();
-                
+
                 return true;
             }
             catch (Exception ex)

@@ -1,13 +1,8 @@
 ﻿using De.HsFlensburg.ClientApp001.Business.Model.BusinessObjects;
-using HtmlAgilityPack;
 using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace Services.HtmlService
 {
@@ -26,12 +21,12 @@ namespace Services.HtmlService
                 string path = dialog.FileName;
                 string html = File.ReadAllText(path);
 
-                string[] lists = html.Split(new string[] { "ul" }, StringSplitOptions.None);                
-                foreach(string list in lists)
+                string[] lists = html.Split(new string[] { "ul" }, StringSplitOptions.None);
+                foreach (string list in lists)
                 {
                     string[] parts = Regex.Split(list, @"<\s*li[^>]*>(.*?)<\s*/\s*li>");
 
-                    if(parts.Length > 1)
+                    if (parts.Length > 1)
                     {
                         Book book = new Book();
                         foreach (string part in parts)

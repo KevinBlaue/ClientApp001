@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AFF7A065-21C7-4AA5-A729-42ABF1249FAE}</ProjectGuid>
+    <ProjectGuid>{EFD09ADD-7B23-4D7F-BBD0-63ED9C508312}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Services.PrintService</RootNamespace>
@@ -50,7 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Business.Model\Business.Model.csproj">
-      <Project>{1FEF7E32-7CE8-4623-83D7-85928B196176}</Project>
+      <Project>{1fef7e32-7ce8-4623-83d7-85928b196176}</Project>
       <Name>Business.Model</Name>
     </ProjectReference>
   </ItemGroup>

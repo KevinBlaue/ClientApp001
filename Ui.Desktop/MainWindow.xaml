@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:De.HsFlensburg.ClientApp001.Ui.Desktop"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="700">
+        Title="Book Manager" Height="500" Width="700">
     <Window.DataContext>
         <Binding Source="{StaticResource ViewModelLocator}"
                  Path="TheMainWindowViewModel"></Binding>
@@ -28,19 +28,15 @@
                   ItemsSource="{Binding Path=MyList}"
                   SelectedItem="{Binding SelectedBook}">
         </DataGrid>
-
         <UniformGrid Grid.Row="1" Rows="1">
-            <Button Command="{Binding SaveCommand}" HorizontalAlignment="Left" Margin="0,0,0,0.4" Width="168">
+            <Button Command="{Binding SaveCommand}">
                 Save
             </Button>
-            <Button Command="{Binding LoadCommand}" Margin="-5.6,0,8.2,0.4">
+            <Button Command="{Binding LoadCommand}">
                 Load
             </Button>
-            <Button Command="{Binding OpenImportExportWindowCommand}" Margin="-8.2,0,0.8,0.4">
+            <Button Command="{Binding OpenImportExportWindowCommand}">
                 Import / Export
-            </Button>
-            <Button Command="{Binding SearchBookCommand}" Margin="0,0,-0.4,0.4">
-                Search
             </Button>
             <Button Command="{Binding OpenPrintWindowCommand}">
                 Print
@@ -55,6 +51,10 @@
             </Button>
             <Button Command="{Binding DeleteSelectedModelCommand}">
                 Delete selected book
+            </Button>
+
+            <Button Command="{Binding OpenStatistikWindowCommand}">
+                Statistics
             </Button>
         </UniformGrid>
     </Grid>
