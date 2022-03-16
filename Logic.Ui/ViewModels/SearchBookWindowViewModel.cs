@@ -72,16 +72,7 @@ namespace De.HsFlensburg.ClientApp001.Logic.Ui.ViewModels
                     }
                 }
             }
-            else if (property == "Title")
-            {
-                foreach (BookViewModel book in bookCollectionViewModel)
-                {
-                    if (book.Title == search)
-                    {
-                        FoundBooks.Add(book);
-                    }
-                }
-            }else if (property == "Author")
+            else if (property == "Author")
             {
                 foreach (BookViewModel book in bookCollectionViewModel)
                 {
